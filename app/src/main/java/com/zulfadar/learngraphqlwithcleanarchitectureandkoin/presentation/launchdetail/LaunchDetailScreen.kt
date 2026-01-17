@@ -29,6 +29,7 @@ import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.R
 import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.domain.model.LaunchDetail
 import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation.common.component.ErrorMessage
 import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation.common.component.LoadingItem
+import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation.launchdetail.component.SmallLoading
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -40,7 +41,7 @@ fun LaunchDetailScreen(
 ) {
     val viewModel: LaunchDetailViewModel = koinViewModel()
     val launchDetailState by viewModel.uiState.collectAsStateWithLifecycle()
-//    val bookState by viewModel.bookState.collectAsStateWithLifecycle()
+    val bookingState by viewModel.bookingState.collectAsStateWithLifecycle()
 
     LaunchedEffect(launchId) {
         if (viewModel.uiState.value !is LaunchDetailState.Success) {
@@ -48,12 +49,12 @@ fun LaunchDetailScreen(
         }
     }
 
-//    LaunchedEffect(bookState.requireLogin) {
-//        if (bookState.requireLogin) {
-//            navigateToLogin()
-//            viewModel.consumeLoginEvent()
-//        }
-//    }
+    LaunchedEffect(bookingState.requireLogin) {
+        if (bookingState.requireLogin) {
+            navigateToLogin()
+            viewModel.consumeLoginEvent()
+        }
+    }
 
     Scaffold(
         topBar =  {
@@ -70,7 +71,7 @@ fun LaunchDetailScreen(
         }
     ) {
         Column(
-            modifier = modifier.padding(it),
+            modifier = modifier.padding(it).fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -88,12 +89,13 @@ fun LaunchDetailScreen(
                     LaunchDetailContent(
                         modifier = Modifier,
                         launchDetailData = launchDetailData,
-//                        bookingLoadng = bookState.loading,
-//                        isBooked = bookState.isBooked,
+                        bookingLoading = bookingState.loading,
+                        isBooked = bookingState.isBooked,
                         navigateToLogin = {
-//                            viewModel.onBookButtonClick(
-//                                launchDetailData.launch?.id.orEmpty()
-//                            )
+                            viewModel.onBookingClick(
+                                launchDetailData.id,
+                                bookingState.isBooked
+                            )
                         },
                     )
                 }
@@ -106,6 +108,8 @@ fun LaunchDetailScreen(
 fun LaunchDetailContent(
     modifier: Modifier = Modifier,
     launchDetailData: LaunchDetail,
+    bookingLoading: Boolean,
+    isBooked: Boolean,
     navigateToLogin: () -> Unit
 ) {
     Column(
@@ -153,15 +157,14 @@ fun LaunchDetailContent(
             modifier = Modifier
                 .padding(top = 32.dp)
                 .fillMaxWidth(),
-//            enabled = !bookingLoadng,
+            enabled = !bookingLoading,
             onClick = navigateToLogin,
         ) {
-//            if (bookingLoadng) {
-//                SmallLoading()
-//            } else {
-//                Text(text = if (!isBooked) "Book now" else "Cancel booking")
-//            }
-            Text(text = "Book now")
+            if (bookingLoading) {
+                SmallLoading()
+            } else {
+                Text(text = if (!isBooked) "Book now" else "Cancel booking")
+            }
         }
     }
 }

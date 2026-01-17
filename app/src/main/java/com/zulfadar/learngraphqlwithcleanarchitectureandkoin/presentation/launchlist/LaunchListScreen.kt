@@ -2,6 +2,7 @@ package com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation.launc
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -14,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -48,7 +50,7 @@ fun LaunchListScreen(
         }
     ) {
         Column(
-            modifier = modifier.padding(it),
+            modifier = modifier.padding(it).fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -99,7 +101,7 @@ fun LaunchListContent(
 
     LazyColumn(
         state = listState,
-        modifier = modifier
+        modifier = modifier.padding(horizontal = 8.dp).fillMaxSize()
     ) {
         items(launchList.itemCount) {index ->
             val launch = launchList[index]
@@ -110,14 +112,11 @@ fun LaunchListContent(
                 )
             }
         }
-        // ⏳ Loading pagination
         item {
             if (launchList.loadState.append is androidx.paging.LoadState.Loading) {
                 LoadingItem()
             }
         }
-
-        // ❌ Error pagination
         item {
             val errorState = launchList.loadState.append as? androidx.paging.LoadState.Error
             errorState?.let {

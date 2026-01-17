@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-private fun SmallLoading() {
+fun SmallLoading() {
     CircularProgressIndicator(
         modifier = Modifier.size(24.dp),
         color = LocalContentColor.current,

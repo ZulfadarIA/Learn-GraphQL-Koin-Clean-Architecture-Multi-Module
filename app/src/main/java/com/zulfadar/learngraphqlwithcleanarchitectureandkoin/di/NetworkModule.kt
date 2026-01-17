@@ -1,18 +1,19 @@
 package com.zulfadar.learngraphqlwithcleanarchitectureandkoin.di
 
+import com.apollographql.apollo.ApolloClient
 import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.data.remote.apollo.ApolloClientProvider
 import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.data.remote.interceptor.AuthorizationInterceptor
 import org.koin.dsl.module
 
 val networkModule = module {
 
-    single<AuthorizationInterceptor> {
+    single {
         AuthorizationInterceptor(
             tokenRepository = get()
         )
     }
 
-    single {
+    single<ApolloClient> {
         ApolloClientProvider.createApolloClient(
             authorizationInterceptor = get()
         )
