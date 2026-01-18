@@ -18,6 +18,8 @@ loggingInterceptor = "4.11.0"
 navigationComposeVersion = "2.9.6"
 material3 = "1.4.0"
 paging = "3.3.6"
+appcompat = "1.7.1"
+material = "1.13.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,10 +48,13 @@ navigation-compose = { group = "androidx.navigation", name = "navigation-compose
 androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 androidx-paging-runtime = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "paging"}
 androidx-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging"}
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 apollo = { id = "com.apollographql.apollo", version.ref = "apollo" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 

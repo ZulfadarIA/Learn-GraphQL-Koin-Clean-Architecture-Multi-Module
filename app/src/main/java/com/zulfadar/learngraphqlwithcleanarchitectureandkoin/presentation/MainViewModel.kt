@@ -2,7 +2,7 @@ package com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.domain.usecase.ObserveTripBookUseCase
+import com.zulfadar.core.usecase.ObserveTripBookUseCase
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn

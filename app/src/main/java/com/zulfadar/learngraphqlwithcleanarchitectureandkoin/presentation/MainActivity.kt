@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation.navigation.MainNavigation
-import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation.ui.theme.LearnGraphQLwithCleanArchitectureAndKoinTheme
+import com.zulfadar.core.ui.theme.LearnGraphQLwithCleanArchitectureAndKoinTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {

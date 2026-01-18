@@ -21,4 +21,11 @@ dependencyResolutionManagement {
 
 rootProject.name = "LearnGraphQLwithCleanArchitectureAndKoin"
 include(":app")
- 
+include(":core-domain")
+include(":core-data")
+include(":core-network")
+include(":core-storage")
+include(":feature-launch")
+include(":feature-login")
+include(":feature-launchdetail")
+include(":core-ui")

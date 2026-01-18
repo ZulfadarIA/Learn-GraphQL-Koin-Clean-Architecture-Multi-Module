@@ -6,9 +6,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation.launchdetail.LaunchDetailScreen
-import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation.launchlist.LaunchListScreen
-import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation.login.LoginScreen
+import com.zulfadar.feature.launchdetail.LaunchDetailScreen
+import com.zulfadar.feature.launchlist.LaunchListScreen
+import com.zulfadar.feature.login.LoginScreen
 
 @Composable
 fun MainNavigation() {

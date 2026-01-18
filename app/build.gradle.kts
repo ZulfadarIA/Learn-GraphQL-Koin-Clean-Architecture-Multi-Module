@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.zulfadar.learngraphqlwithcleanarchitectureandkoin"
+    namespace = "com.zulfadar.core"
     compileSdk {
         version = release(36)
     }
@@ -43,6 +43,15 @@ android {
 }
 
 dependencies {
+    implementation(project(":core-data"))
+    implementation(project(":core-domain"))
+    implementation(project(":core-network"))
+    implementation(project(":core-storage"))
+    implementation(project(":core-ui"))
+    implementation(project(":feature-launch"))
+    implementation(project(":feature-launchdetail"))
+    implementation(project(":feature-login"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -78,13 +87,4 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-}
-
-apollo {
-    service("service") {
-        packageName.set("com.example.rocketreserver")
-        introspection { endpointUrl.set("https://apollo-fullstack-tutorial.herokuapp.com/graphql")
-            schemaFile.set(file("src/main/graphql/schema.graphqls"))
-        }
-    }
 }
