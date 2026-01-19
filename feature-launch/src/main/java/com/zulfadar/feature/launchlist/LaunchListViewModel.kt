@@ -3,12 +3,11 @@ package com.zulfadar.feature.launchlist
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
-import com.zulfadar.core.usecase.GetLaunchPagingUseCase
+import com.zulfadar.core.usecase.GetLaunchListUseCase
 
 
 class LaunchListViewModel(
-   // private val getLaunchListUseCase: GetLaunchListUseCase,
-    private val getLaunchPagingUseCase: GetLaunchPagingUseCase
+    private val getLaunchListUseCase: GetLaunchListUseCase,
 ) : ViewModel() {
 //    private val _launchListUiState = MutableStateFlow<LaunchListState>(LaunchListState.Loading)
 //    val launchListUistate = _launchListUiState.asStateFlow()
@@ -31,5 +30,5 @@ class LaunchListViewModel(
 //            }
 //        }
 //    }
-    val launches = getLaunchPagingUseCase.invoke().cachedIn(viewModelScope)
+    val launches = getLaunchListUseCase.invoke().cachedIn(viewModelScope)
 }
