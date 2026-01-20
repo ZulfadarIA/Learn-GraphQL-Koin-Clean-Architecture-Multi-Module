@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/feature-launch" />
             <option value="$PROJECT_DIR$/feature-launchdetail" />
             <option value="$PROJECT_DIR$/feature-login" />
+            <option value="$PROJECT_DIR$/feature_customerservice" />
           </set>
         </option>
       </GradleProjectSettings>

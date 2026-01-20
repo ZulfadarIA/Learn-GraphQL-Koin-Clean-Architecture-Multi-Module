@@ -21,21 +21,37 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.zulfadar.core.model.Launch
+import com.zulfadar.feature.launchlist.component.CustomerServiceButton
 import com.zulfadar.feature.launchlist.component.ErrorMessage
 import com.zulfadar.feature.launchlist.component.LaunchItem
 import com.zulfadar.feature.launchlist.component.LoadingItem
 import org.koin.androidx.compose.koinViewModel
 
+//ditambahin root composable , statenya dipecah persection biar recomposenya gak banyak, ahnya disatu tempat/component
+//kyk gini
+@Composable
+fun LaunchListRoot(
+    onLaunchClick: (String) -> Unit,
+    onCsFabClick: () -> Unit,
+    viewModel: LaunchListViewModel = koinViewModel()
+) {
+    val uiState = viewModel.launches.collectAsLazyPagingItems()
+
+    LaunchListScreen(
+        uiState = uiState,
+        onLaunchClick = onLaunchClick,
+        onCsFabClick = onCsFabClick
+    )
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LaunchListScreen(
     modifier: Modifier = Modifier,
+    uiState: LazyPagingItems<Launch>,
     onLaunchClick: (String) -> Unit,
-    viewModel: LaunchListViewModel = koinViewModel()
+    onCsFabClick: () -> Unit,
 ) {
-    //val uiState by viewModel.launchListUistate.collectAsStateWithLifecycle()
-    val uiState = viewModel.launches.collectAsLazyPagingItems()
-    
     Scaffold(
         topBar = {
             TopAppBar(
@@ -48,10 +64,17 @@ fun LaunchListScreen(
                     )
                 }
             )
+        },
+        floatingActionButton = {
+            CustomerServiceButton(
+                onCsFabClick = onCsFabClick
+            )
         }
     ) {
         Column(
-            modifier = modifier.padding(it).fillMaxSize(),
+            modifier = modifier
+                .padding(it)
+                .fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -71,23 +94,6 @@ fun LaunchListScreen(
                     )
                 }
             }
-//            when(uiState) {
-//                is LaunchListState.Loading -> {
-//                    LoadingItem()
-//                }
-//                is LaunchListState.Error -> {
-//                    ErrorMessage(
-//                        text = (uiState as LaunchListState.Error).message
-//                    )
-//                }
-//                is LaunchListState.Success ->  {
-//                    val launchList = (uiState as LaunchListState.Success).data
-//                    LaunchListContent(
-//                        launchList = launchList,
-//                        onLaunchClick = onLaunchClick,
-//                    )
-//                }
-//            }
         }
     }
 }
@@ -102,7 +108,9 @@ fun LaunchListContent(
 
     LazyColumn(
         state = listState,
-        modifier = modifier.padding(horizontal = 8.dp).fillMaxSize()
+        modifier = modifier
+            .padding(horizontal = 8.dp)
+            .fillMaxSize()
     ) {
         items(launchList.itemCount) {index ->
             val launch = launchList[index]

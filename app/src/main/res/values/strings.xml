@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LearnGraphQLwithCleanArchitectureAndKoin</string>
+    <string name="title_feature_customerservice">Customer Service</string>
 </resources>

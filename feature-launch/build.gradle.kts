@@ -31,6 +31,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    buildFeatures {
+        compose = true
+    }
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -39,9 +42,8 @@ android {
 dependencies {
     implementation(project(":core-data"))
     implementation(project(":core-domain"))
+    implementation(project(":core-ui"))
     implementation(project(":core-network"))
-    implementation(project(":core-storage"))
-    implementation(project(":core-storage"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -51,6 +53,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material.icons.core.android)
+    implementation(libs.androidx.compose.material.icons.extended.android)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.security.crypto)
     implementation(libs.coil.compose)
@@ -65,16 +69,16 @@ dependencies {
     implementation(libs.apollo.runtime)
     implementation(libs.okhttp.logging.interceptor)
     implementation(libs.navigation.compose)
-    implementation(libs.androidx.material3)
 
     //Paging3
     implementation(libs.androidx.paging.runtime)
     implementation(libs.androidx.paging.compose)
 
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

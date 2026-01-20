@@ -40,13 +40,13 @@ android {
     buildFeatures {
         compose = true
     }
+    dynamicFeatures += setOf(":feature_customerservice")
 }
 
 dependencies {
     implementation(project(":core-data"))
     implementation(project(":core-domain"))
     implementation(project(":core-network"))
-    implementation(project(":core-storage"))
     implementation(project(":core-ui"))
     implementation(project(":feature-launch"))
     implementation(project(":feature-launchdetail"))
@@ -79,6 +79,10 @@ dependencies {
     //Paging3
     implementation(libs.androidx.paging.runtime)
     implementation(libs.androidx.paging.compose)
+
+    //play feature delivery
+    implementation(libs.feature.delivery)
+    implementation(libs.feature.delivery.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

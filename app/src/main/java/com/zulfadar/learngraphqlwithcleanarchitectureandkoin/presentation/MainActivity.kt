@@ -15,8 +15,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation.navigation.MainNavigation
 import com.zulfadar.core.ui.theme.LearnGraphQLwithCleanArchitectureAndKoinTheme
+import com.zulfadar.learngraphqlwithcleanarchitectureandkoin.presentation.navigation.MainNavigation
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
@@ -28,19 +28,19 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LearnGraphQLwithCleanArchitectureAndKoinTheme {
-                val snackbarHostState = remember { SnackbarHostState() }
+                val snackBarHostState = remember { SnackbarHostState() }
                 val message by viewModel.snackbarMessage.collectAsStateWithLifecycle()
 
                 LaunchedEffect(message) {
                     message?.let {
-                        snackbarHostState.showSnackbar(
+                        snackBarHostState.showSnackbar(
                             message = it,
                             withDismissAction = true
                         )
                     }
                 }
                 Scaffold(
-                    snackbarHost = { SnackbarHost(snackbarHostState) }
+                    snackbarHost = { SnackbarHost(snackBarHostState) }
                 ) {
                     MainScreen(modifier = Modifier.padding(it))
                 }
@@ -50,8 +50,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen(modifier: Modifier = Modifier) {
-    MainNavigation()
+fun MainScreen(modifier: Modifier = Modifier) {// kalau gak dipake dihapus aja
+    MainNavigation(
+        modifier = modifier
+    )
 }
 
 @Preview(showBackground = true)
