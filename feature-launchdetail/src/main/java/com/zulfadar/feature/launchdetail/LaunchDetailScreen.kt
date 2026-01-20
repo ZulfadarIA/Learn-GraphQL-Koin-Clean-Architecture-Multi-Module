@@ -25,9 +25,9 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import com.zulfadar.core.model.LaunchDetail
-import com.zulfadar.feature.launchdetail.component.ErrorMessage
-import com.zulfadar.feature.launchdetail.component.LoadingItem
-import com.zulfadar.feature.launchdetail.component.SmallLoading
+import com.zulfadar.core.ui.component.ErrorMessage
+import com.zulfadar.core.ui.component.LoadingItem
+import com.zulfadar.core.ui.component.SmallLoading
 import org.koin.androidx.compose.koinViewModel
 
 

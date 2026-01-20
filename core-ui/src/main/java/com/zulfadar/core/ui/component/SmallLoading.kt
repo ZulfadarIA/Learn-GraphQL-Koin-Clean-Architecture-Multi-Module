@@ -1,4 +1,4 @@
-package com.zulfadar.feature.login.component
+package com.zulfadar.core.ui.component
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CircularProgressIndicator

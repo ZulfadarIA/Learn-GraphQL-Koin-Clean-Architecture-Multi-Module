@@ -21,10 +21,10 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.zulfadar.core.model.Launch
+import com.zulfadar.core.ui.component.ErrorMessage
+import com.zulfadar.core.ui.component.LoadingItem
 import com.zulfadar.feature.launchlist.component.CustomerServiceButton
-import com.zulfadar.feature.launchlist.component.ErrorMessage
 import com.zulfadar.feature.launchlist.component.LaunchItem
-import com.zulfadar.feature.launchlist.component.LoadingItem
 import org.koin.androidx.compose.koinViewModel
 
 //ditambahin root composable , statenya dipecah persection biar recomposenya gak banyak, ahnya disatu tempat/component
