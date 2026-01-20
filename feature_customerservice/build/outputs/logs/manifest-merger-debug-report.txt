@@ -1,0 +1,43 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:2:1-13:12
+INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:2:1-13:12
+INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:2:1-13:12
+INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:2:1-13:12
+	package
+		INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml
+	xmlns:dist
+		ADDED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:3:5-61
+	android:versionCode
+		INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:2:11-69
+dist:module
+ADDED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:5:5-12:19
+	dist:instant
+		ADDED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:6:9-29
+	dist:title
+		ADDED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:7:9-59
+dist:delivery
+ADDED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:8:9-10:25
+dist:on-demand
+ADDED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:9:13-31
+dist:fusing
+ADDED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:11:9-45
+	dist:include
+		ADDED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml:11:22-42
+application
+INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml reason: application injection requested
+INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml
+	android:extractNativeLibs
+		INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml
+uses-sdk
+INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml
+INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\PortoProject\LearnGraphQLwithCleanArchitectureAndKoin\feature_customerservice\src\main\AndroidManifest.xml

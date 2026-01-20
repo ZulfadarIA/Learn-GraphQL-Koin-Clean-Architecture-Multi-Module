@@ -1,0 +1,7 @@
+#Tue Jan 20 15:38:49 WIB 2026
+base.0=E\:\\PortoProject\\LearnGraphQLwithCleanArchitectureAndKoin\\feature_customerservice\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.1=E\:\\PortoProject\\LearnGraphQLwithCleanArchitectureAndKoin\\feature_customerservice\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
+path.0=0/classes.dex
+path.1=11/classes.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
