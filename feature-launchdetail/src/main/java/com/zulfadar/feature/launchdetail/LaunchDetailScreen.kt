@@ -30,16 +30,34 @@ import com.zulfadar.feature.launchdetail.component.LoadingItem
 import com.zulfadar.feature.launchdetail.component.SmallLoading
 import org.koin.androidx.compose.koinViewModel
 
+
+@Composable
+fun LaunchDetailRoot(
+    launchId: String,
+    navigateToLogin: () -> Unit,
+    viewModel: LaunchDetailViewModel = koinViewModel()
+) {
+    val launchDetailState by viewModel.uiState.collectAsStateWithLifecycle()
+    val bookingState by viewModel.bookingState.collectAsStateWithLifecycle()
+
+    LaunchDetailScreen(
+        launchId = launchId,
+        launchDetailState = launchDetailState,
+        bookingState = bookingState,
+        viewModel = viewModel,
+        navigateToLogin = navigateToLogin
+    )
+}
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LaunchDetailScreen(
     modifier: Modifier = Modifier,
     launchId: String,
+    launchDetailState: LaunchDetailState,
+    bookingState: BookingState,
+    viewModel: LaunchDetailViewModel,
     navigateToLogin: () -> Unit
 ) {
-    val viewModel: LaunchDetailViewModel = koinViewModel()
-    val launchDetailState by viewModel.uiState.collectAsStateWithLifecycle()
-    val bookingState by viewModel.bookingState.collectAsStateWithLifecycle()
 
     LaunchedEffect(launchId) {
         if (viewModel.uiState.value !is LaunchDetailState.Success) {
@@ -69,7 +87,9 @@ fun LaunchDetailScreen(
         }
     ) {
         Column(
-            modifier = modifier.padding(it).fillMaxSize(),
+            modifier = modifier
+                .padding(it)
+                .fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -79,11 +99,11 @@ fun LaunchDetailScreen(
                 }
                 is LaunchDetailState.Error -> {
                     ErrorMessage(
-                        text = (launchDetailState as LaunchDetailState.Error).message
+                        text = launchDetailState.message
                     )
                 }
                 is LaunchDetailState.Success -> {
-                    val launchDetailData = (launchDetailState as LaunchDetailState.Success).data
+                    val launchDetailData = launchDetailState.data
                     LaunchDetailContent(
                         modifier = Modifier,
                         launchDetailData = launchDetailData,
@@ -105,7 +125,7 @@ fun LaunchDetailScreen(
 @Composable
 fun LaunchDetailContent(
     modifier: Modifier = Modifier,
-    launchDetailData: LaunchDetail,
+    launchDetailData: LaunchDetail?,
     bookingLoading: Boolean,
     isBooked: Boolean,
     navigateToLogin: () -> Unit
@@ -119,7 +139,7 @@ fun LaunchDetailContent(
             // Mission patch
             AsyncImage(
                 modifier = Modifier.size(160.dp, 160.dp),
-                model = launchDetailData.missionPatchUrl,
+                model = launchDetailData?.missionPatchUrl ?: "",
 //                placeholder = painterResource(R.drawable.ic_placeholder),
 //                error = painterResource(R.drawable.ic_placeholder),
                 contentDescription = "Mission patch"
@@ -138,7 +158,7 @@ fun LaunchDetailContent(
                 Text(
                     modifier = Modifier.padding(top = 8.dp),
                     style = MaterialTheme.typography.headlineSmall,
-                    text = launchDetailData?.site.let { "🚀 $it" } ?: "",
+                    text = launchDetailData?.site.let { "🚀 $it" },
                 )
 
                 // Site
