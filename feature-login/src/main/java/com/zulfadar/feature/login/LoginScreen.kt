@@ -21,7 +21,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.zulfadar.feature.login.component.SmallLoading
+import com.zulfadar.core.ui.component.SmallLoading
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
